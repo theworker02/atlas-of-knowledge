@@ -21,4 +21,8 @@ models = ROOT / "artifacts" / "models" / f"v{args.version}"
 if models.exists():
     shutil.copytree(models, target / "models")
     print(f"Included trained model artifacts from {models}")
+generative_models = ROOT / "artifacts" / "generative" / f"v{args.version}"
+if generative_models.exists():
+    shutil.copytree(generative_models, target / "models" / "generative", dirs_exist_ok=True)
+    print(f"Included generative model artifacts from {generative_models}")
 print(target)
