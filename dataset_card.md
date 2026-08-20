@@ -5,7 +5,7 @@ tags: [education, knowledge-graph, university, retrieval, structured-data]
 ---
 # Atlas of Knowledge dataset card
 
-**Version:** 1.0.0 · **Records:** 11,237 · **Distribution:** Hugging Face release package
+**Version:** 1.0.2 · **Records:** 20,417 · **Distribution:** Hugging Face release package
 
 ## Summary and uses
 
@@ -13,7 +13,7 @@ Atlas of Knowledge is an original, structured representation of university-level
 
 ## Structure
 
-The primary `concepts` subset contains an ID, discipline, course, topic, definitions, explanatory fields, prerequisites, typed relationships, applications, misconceptions, assumptions, reasoning, questions, answers, and optional domain properties. The 1.0.0 release has 11,237 connected records across 17 courses. Releases also export `courses`, `prerequisites`, `relationships`, `questions`, `reasoning`, `misconceptions`, and `cross_domain`, plus deterministic train/validation/test splits and an independent graph.
+The primary `concepts` subset contains an ID, discipline, course, topic, definitions, explanatory fields, prerequisites, typed relationships, applications, misconceptions, assumptions, reasoning, questions, answers, and optional domain properties. The 1.0.2 release has 20,417 connected records across 10 courses and 15 disciplines. Each validated learning facet is developed through twelve distinct learning units, including diagnostic checks, case analysis, retrieval practice, formal consistency checks, design tasks, and peer-critique protocols. Releases also export `courses`, `prerequisites`, `relationships`, `questions`, `reasoning`, `misconceptions`, and `cross_domain`, plus deterministic train/validation/test splits and an independent graph.
 
 ## Collection, approval, and provenance
 

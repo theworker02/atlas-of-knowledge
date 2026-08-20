@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use Atlas of Knowledge, please cite it as below."
 title: "Atlas of Knowledge"
 type: dataset
-version: "1.0.0"
-date-released: 2026-08-19
+version: "1.0.2"
+date-released: 2026-08-20
 authors:
   - name: "theworker02"
 repository-code: "https://github.com/theworker02/atlas-of-knowledge"

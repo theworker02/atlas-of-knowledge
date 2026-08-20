@@ -4,7 +4,7 @@ language:
 license: cc-by-4.0
 pretty_name: Atlas of Knowledge
 size_categories:
-- 1K<n<10K
+- 10K<n<100K
 tags:
 - education
 - knowledge-graph
@@ -42,13 +42,13 @@ Atlas turns the structure of a strong university education into reusable data: *
 
 | Release | Connected records | Courses | Minimum course depth | License |
 | --- | ---: | ---: | ---: | --- |
-| `v1.0.0` | 10,000+ | 17 | 600+ records | CC BY 4.0 |
+| `v1.0.2` | 20,417 | 10 | 1,200+ records | CC BY 4.0 |
 
 Every generated record retains a stable local identifier, prerequisite path, typed relationship, validation report, and provenance envelope. The release is deterministic: the same approved inputs and version produce the same split assignments and graph structure.
 
 ## Current release
 
-V1.0.0 provides a production-oriented, offline-first pipeline around fifteen curated university anchors, their connected learning content, and eligible collected course outlines. It includes allowlisted course discovery, licensing gates, a SQLite course registry, quality reports, deterministic releases, graph exports, CI, and a static GitHub Pages site.
+V1.0.2 provides a production-oriented, offline-first pipeline around fifteen curated university anchors, their connected learning content, and eligible collected course outlines. It includes allowlisted course discovery, licensing gates, a SQLite course registry, quality reports, deterministic releases, graph exports, CI, and a static GitHub Pages site. Each validated facet now produces twelve distinct instructional records, increasing depth through diagnostic, retrieval, formal-checking, design, case-analysis, and peer-critique units rather than using a larger unstructured document dump.
 
 ## Layout
 
@@ -75,7 +75,7 @@ Each concept has a stable `id`, original instructional prose, prerequisite IDs, 
 
 ```bash
 python scripts/validate_dataset.py
-python atlas_cli.py run --version 1.0.0
+python atlas_cli.py run --version 1.0.2
 python -m unittest discover -s tests -v
 ```
 
@@ -117,13 +117,13 @@ The repository never commits a full generated dataset to GitHub. Package and pub
 
 ```bash
 hf auth login
-python scripts/package_hf_release.py --version 1.0.0
+python scripts/package_hf_release.py --version 1.0.2
 hf repos create theworker02/atlas-of-knowledge --type dataset --public --exist-ok
-hf upload theworker02/atlas-of-knowledge dist/huggingface/atlas-of-knowledge-v1.0.0 --type dataset --commit-message "Atlas v1.0.0 complete release"
+hf upload theworker02/atlas-of-knowledge dist/huggingface/atlas-of-knowledge-v1.0.2 --type dataset --commit-message "Atlas v1.0.2 complete release"
 ```
 
 The staged package contains all data subsets, splits, graph export, build metadata, schema, dataset card, licensing, citation, and methodology documentation.
 
 ## Citation
 
-Recommended citation: **theworker02 (2026). Atlas of Knowledge (Version 1.0.0) [Dataset]. Hugging Face. https://huggingface.co/datasets/theworker02/atlas-of-knowledge**.
+Recommended citation: **theworker02 (2026). Atlas of Knowledge (Version 1.0.2) [Dataset]. Hugging Face. https://huggingface.co/datasets/theworker02/atlas-of-knowledge**.

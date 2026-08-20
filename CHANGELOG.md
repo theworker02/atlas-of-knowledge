@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2 — 2026-08-20
+
+- Doubled the deterministic release depth by expanding every validated learning facet from six to twelve distinct instructional units.
+- Added diagnostic checks, case analyses, retrieval practice, formal consistency checks, design tasks, and peer-critique protocols while retaining local provenance, prerequisite chains, and schema validation.
+- Rebuilt the complete Hugging Face package and added substantive release notes for both the new release and the previous v1.0.0 release.
+
 ## 1.0.0 — 2026-08-19
 
 - Expanded the connected, validated release beyond 10,000 records.

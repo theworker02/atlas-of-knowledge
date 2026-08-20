@@ -8,7 +8,7 @@ from .quality import report
 from .registry import Registry
 
 ROOT=Path(__file__).resolve().parents[1]
-def run(state_path: Path = ROOT/"state"/"atlas.sqlite", version: str="1.0.0", collect: bool=False) -> dict:
+def run(state_path: Path = ROOT/"state"/"atlas.sqlite", version: str="1.0.2", collect: bool=False) -> dict:
     registry=Registry(state_path); policy=load_policy()
     try:
         for candidate in discover():

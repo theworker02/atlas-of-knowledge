@@ -9,6 +9,12 @@ MODULES = (
     ("counterexample", "Counterexample and boundary", "A counterexample and boundary record tests where a tempting generalization fails and identifies the condition that prevents the error."),
     ("rubric", "Quality rubric", "A quality rubric provides observable criteria for checking accuracy, scope, reasoning, and communication in a response."),
     ("reflection", "Reflection and transfer", "Reflection and transfer asks the learner to explain what changed, what remains uncertain, and how the learning applies in a new setting."),
+    ("diagnostic", "Diagnostic check", "A diagnostic check isolates a likely misunderstanding and distinguishes a correct principle from a plausible but invalid shortcut."),
+    ("case-analysis", "Case analysis", "Case analysis applies the parent content to a specific bounded scenario, separating relevant evidence from incidental detail."),
+    ("retrieval", "Retrieval practice", "Retrieval practice requires reconstructing the parent idea and its conditions from memory before consulting supporting material."),
+    ("formal-check", "Formal consistency check", "A formal consistency check tests whether definitions, assumptions, intermediate steps, and conclusions agree with one another."),
+    ("design-task", "Design task", "A design task asks the learner to create an artifact, procedure, or decision that operationalizes the parent concept under stated constraints."),
+    ("peer-critique", "Peer critique protocol", "A peer critique protocol provides a structured method for evaluating another explanation against evidence, scope, and stated reasoning."),
 )
 
 def granulate(units: list[dict]) -> list[dict]:
