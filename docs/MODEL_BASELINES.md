@@ -12,6 +12,11 @@ and `test.jsonl`, and omits the course and discipline fields from model input. I
 writes serialized models, exact metrics, requirements, and model cards under
 `artifacts/models/`; that directory is deliberately not tracked by Git.
 
+When present during `scripts/package_hf_release.py --version <version>`, those
+artifacts are included under `models/` in the existing Atlas Hugging Face dataset
+repository. They are deliberately kept with the versioned dataset release rather
+than requiring a separate model repository.
+
 Run it after a release build:
 
 ```bash

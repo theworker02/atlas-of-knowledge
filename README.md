@@ -126,7 +126,7 @@ The staged package contains all data subsets, splits, graph export, build metada
 
 ## Reproducible model baselines
 
-Atlas includes a CPU-friendly trainer for transparent discipline and course classification baselines. It fits only on the deterministic training split and evaluates separately on validation and test splits; it is not a generative-model trainer or a claim of broad educational competence.
+Atlas includes a CPU-friendly trainer for transparent discipline and course classification baselines. It fits only on the deterministic training split and evaluates separately on validation and test splits; it is not a generative-model trainer or a claim of broad educational competence. Packaged baseline artifacts are included under `models/` in the existing Hugging Face Atlas dataset release.
 
 ```bash
 python scripts/train_baselines.py --version 1.0.2

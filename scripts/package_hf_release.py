@@ -17,4 +17,8 @@ for source, name in [(ROOT / "dataset_card.md", "README.md"), (ROOT / "LICENSE",
     shutil.copy2(source, target / name)
 shutil.copytree(ROOT / "schema", target / "schema")
 shutil.copytree(ROOT / "docs", target / "docs", dirs_exist_ok=True)
+models = ROOT / "artifacts" / "models" / f"v{args.version}"
+if models.exists():
+    shutil.copytree(models, target / "models")
+    print(f"Included trained model artifacts from {models}")
 print(target)
