@@ -85,7 +85,7 @@ The pipeline is intentionally network-free by default. It consumes only declared
 
 The pipeline is `Discover → Evaluate → Approve → Ingest → Transform → Validate → Deduplicate → Graph → Release → Document`. Courses scoring at least 0.75 after allowlist, license, metadata, discipline, and level checks are approved automatically; others are quarantined. Records require a score of 0.85 to be released. License ambiguity, unsupported sources, duplicate candidates, failed graph checks, or low-confidence results are held for review.
 
-See [source policy](docs/SOURCE_POLICY.md), [validation methodology](docs/VALIDATION.md), and the [dataset card](dataset_card.md). GitHub Actions validates scheduled and proposed changes, builds release artifacts, deploys Pages from main, and only uploads to Hugging Face in an explicitly triggered protected-environment workflow using `HF_TOKEN` and `HF_DATASET_REPO`.
+See [source policy](docs/SOURCE_POLICY.md), [validation methodology](docs/VALIDATION.md), and the [dataset card](dataset_card.md). GitHub Actions validates scheduled and proposed changes, builds release artifacts, deploys Pages from main, and, in a protected manually dispatched workflow, uploads the complete package to Hugging Face and creates a matching GitHub release tag with generated release notes. The GitHub release intentionally contains no dataset payload.
 
 Load with the Hugging Face datasets library after publishing, or read JSONL directly:
 

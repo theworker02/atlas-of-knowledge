@@ -1,10 +1,10 @@
-name: Publish validated dataset release
+name: Publish Atlas dataset and GitHub release
 on:
   workflow_dispatch:
     inputs:
       version: {description: 'Semantic release version', required: true, default: '1.0.0'}
 permissions:
-  contents: read
+  contents: write
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -23,3 +23,18 @@ jobs:
           test -n "$HF_TOKEN" && test -n "$HF_DATASET_REPO"
           pip install huggingface_hub
           hf upload "$HF_DATASET_REPO" "dist/huggingface/atlas-of-knowledge-v${{ inputs.version }}" --type dataset --commit-message "Atlas ${{ inputs.version }} complete release"
+      - name: Create GitHub release notes and tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HF_DATASET_REPO: ${{ vars.HF_DATASET_REPO }}
+        run: |
+          test -n "$HF_DATASET_REPO"
+          gh release create "v${{ inputs.version }}" \
+            --repo "${{ github.repository }}" \
+            --title "Atlas of Knowledge v${{ inputs.version }}" \
+            --generate-notes \
+            --notes "## Dataset release
+
+The complete validated Atlas v${{ inputs.version }} dataset is published on [Hugging Face](https://huggingface.co/datasets/$HF_DATASET_REPO).
+
+This GitHub release intentionally contains no generated dataset files. GitHub hosts the source pipeline; Hugging Face hosts the complete release package, including all splits, subsets, graph export, provenance metadata, schema, dataset card, license, and citation."

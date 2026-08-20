@@ -1,5 +1,3 @@
-# Add verified funding handles only. These empty placeholders intentionally create no sponsorship links.
-github: []
-open_collective: ""
-ko_fi: ""
-custom: []
+# Verified funding destinations.
+github: u/gh/theworker02
+thanks_dev: https://thanks.dev/theworker02
