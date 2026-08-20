@@ -124,6 +124,16 @@ hf upload theworker02/atlas-of-knowledge dist/huggingface/atlas-of-knowledge-v1.
 
 The staged package contains all data subsets, splits, graph export, build metadata, schema, dataset card, licensing, citation, and methodology documentation.
 
+## Reproducible model baselines
+
+Atlas includes a CPU-friendly trainer for transparent discipline and course classification baselines. It fits only on the deterministic training split and evaluates separately on validation and test splits; it is not a generative-model trainer or a claim of broad educational competence.
+
+```bash
+python scripts/train_baselines.py --version 1.0.2
+```
+
+See [model baseline documentation](docs/MODEL_BASELINES.md) for the artifact contract, evaluation boundary, and limitations.
+
 ## Citation
 
 Recommended citation: **theworker02 (2026). Atlas of Knowledge (Version 1.0.2) [Dataset]. Hugging Face. https://huggingface.co/datasets/theworker02/atlas-of-knowledge**.

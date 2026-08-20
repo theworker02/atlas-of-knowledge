@@ -5,6 +5,7 @@ __pycache__/
 /state/
 releases/
 /dist/
+/artifacts/
 /site/data/*.json
 /site/data/*.jsonl
 /site/data/*.parquet
