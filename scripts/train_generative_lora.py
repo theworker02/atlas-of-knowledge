@@ -95,7 +95,7 @@ structure. Evaluate outputs independently before any consequential use.
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Fine-tune a small generative Atlas LoRA adapter on CPU")
-    parser.add_argument("--version", default="1.0.3")
+    parser.add_argument("--version", default="1.1.0")
     parser.add_argument("--base-model", default="distilgpt2")
     parser.add_argument("--variant", default="custom")
     parser.add_argument("--max-length", type=int, default=192)

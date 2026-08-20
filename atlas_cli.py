@@ -3,7 +3,7 @@ import argparse, json
 from atlas.pipeline import run
 def main() -> None:
     parser=argparse.ArgumentParser(prog="atlas",description="Atlas autonomous, policy-gated collector")
-    parser.add_argument("command",choices=["discover","evaluate","approve","ingest","validate","build","stats","run"]); parser.add_argument("--version",default="1.0.3")
+    parser.add_argument("command",choices=["discover","evaluate","approve","ingest","validate","build","stats","run"]); parser.add_argument("--version",default="1.1.0")
     args=parser.parse_args()
     if args.command == "validate":
         from scripts.validate_dataset import main as validate; raise SystemExit(validate())

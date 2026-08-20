@@ -20,7 +20,7 @@ than requiring a separate model repository.
 Run it after a release build:
 
 ```bash
-python scripts/train_baselines.py --version 1.0.3
+python scripts/train_baselines.py --version 1.1.0
 ```
 
 These artifacts are task-specific baselines, not general-purpose language models.

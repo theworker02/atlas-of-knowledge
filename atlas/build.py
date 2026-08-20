@@ -12,7 +12,7 @@ def write_jsonl(path: Path, values: list[dict]):
 def split(identifier: str) -> str:
     bucket = int(hashlib.sha256(identifier.encode()).hexdigest()[:8], 16) % 100
     return "test" if bucket < 10 else "validation" if bucket < 20 else "train"
-def build(version: str = "1.0.3", additional_records: list[dict] | None = None, collection_stats: dict | None = None) -> Path:
+def build(version: str = "1.1.0", additional_records: list[dict] | None = None, collection_stats: dict | None = None) -> Path:
     records = load_jsonl(ROOT / "data" / "atlas-v1.jsonl") + (additional_records or [])
     records = sorted({record["id"]:record for record in records}.values(), key=lambda x:x["id"])
     target = ROOT / "releases" / f"v{version}"; shutil.rmtree(target, ignore_errors=True); target.mkdir(parents=True)

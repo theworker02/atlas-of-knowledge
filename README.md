@@ -42,13 +42,25 @@ Atlas turns the structure of a strong university education into reusable data: *
 
 | Release | Connected records | Courses | Minimum course depth | License |
 | --- | ---: | ---: | ---: | --- |
-| `v1.0.3` | 20,417 | 17 | 1,200+ records | CC BY 4.0 |
+| `v1.1.0` | 20,417 | 17 | 1,200+ records | CC BY 4.0 |
 
 Every generated record retains a stable local identifier, prerequisite path, typed relationship, validation report, and provenance envelope. The release is deterministic: the same approved inputs and version produce the same split assignments and graph structure.
 
 ## Current release
 
-V1.0.3 provides a production-oriented, offline-first pipeline around fifteen curated university anchors, their connected learning content, eligible collected course outlines, and two transparent trained classification baselines. It includes allowlisted course discovery, licensing gates, a SQLite course registry, quality reports, deterministic releases, graph exports, CI, and a static GitHub Pages site. Each validated facet produces twelve distinct instructional records, increasing depth through diagnostic, retrieval, formal-checking, design, case-analysis, and peer-critique units rather than using a larger unstructured document dump.
+V1.1.0 provides a production-oriented, offline-first pipeline around fifteen curated university anchors, their connected learning content, eligible collected course outlines, two transparent trained classification baselines, and a three-size generative LoRA adapter family. It includes allowlisted course discovery, licensing gates, a SQLite course registry, quality reports, deterministic releases, graph exports, CI, and a static GitHub Pages site. Each validated facet produces twelve distinct instructional records, increasing depth through diagnostic, retrieval, formal-checking, design, case-analysis, and peer-critique units rather than using a larger unstructured document dump.
+
+## Generative model family
+
+The complete [Hugging Face dataset release](https://huggingface.co/datasets/theworker02/atlas-of-knowledge/tree/v1.1.0/models/generative) contains three PEFT/LoRA causal-language-model adapters under `models/generative/`. They are research artifacts trained only on the deterministic Atlas training split, not general-purpose foundation models.
+
+| Variant | Base model | Base parameters | LoRA parameters | Validation loss |
+| --- | --- | ---: | ---: | ---: |
+| Small | `distilgpt2` | 82,723,584 | 811,008 | 0.117829 |
+| Medium | `gpt2-medium` | 354,823,168 | 4,325,376 | 0.102025 |
+| Large | `gpt2-large` | 774,030,080 | 8,110,080 | 0.097541 |
+
+Every adapter ships with weights, PEFT configuration, checkpoints, evaluation output, metadata, requirements, and a limitation-focused model card. Load it with the named base model plus `peft`; evaluate it for your use case before relying on output.
 
 ## Layout
 
@@ -75,7 +87,7 @@ Each concept has a stable `id`, original instructional prose, prerequisite IDs, 
 
 ```bash
 python scripts/validate_dataset.py
-python atlas_cli.py run --version 1.0.3
+python atlas_cli.py run --version 1.1.0
 python -m unittest discover -s tests -v
 ```
 
@@ -117,9 +129,9 @@ The repository never commits a full generated dataset to GitHub. Package and pub
 
 ```bash
 hf auth login
-python scripts/package_hf_release.py --version 1.0.3
+python scripts/package_hf_release.py --version 1.1.0 --model-version 1.0.3
 hf repos create theworker02/atlas-of-knowledge --type dataset --public --exist-ok
-hf upload theworker02/atlas-of-knowledge dist/huggingface/atlas-of-knowledge-v1.0.3 --type dataset --commit-message "Atlas v1.0.3 complete release"
+hf upload theworker02/atlas-of-knowledge dist/huggingface/atlas-of-knowledge-v1.1.0 --type dataset --commit-message "Atlas v1.1.0 complete release"
 ```
 
 The staged package contains all data subsets, splits, graph export, build metadata, schema, dataset card, licensing, citation, and methodology documentation.
@@ -129,11 +141,11 @@ The staged package contains all data subsets, splits, graph export, build metada
 Atlas includes a CPU-friendly trainer for transparent discipline and course classification baselines. It fits only on the deterministic training split and evaluates separately on validation and test splits; it is not a generative-model trainer or a claim of broad educational competence. Packaged baseline artifacts are included under `models/` in the existing Hugging Face Atlas dataset release.
 
 ```bash
-python scripts/train_baselines.py --version 1.0.3
+python scripts/train_baselines.py --version 1.1.0
 ```
 
 See [model baseline documentation](docs/MODEL_BASELINES.md) for the artifact contract, evaluation boundary, and limitations.
 
 ## Citation
 
-Recommended citation: **theworker02 (2026). Atlas of Knowledge (Version 1.0.3) [Dataset]. Hugging Face. https://huggingface.co/datasets/theworker02/atlas-of-knowledge**.
+Recommended citation: **theworker02 (2026). Atlas of Knowledge (Version 1.1.0) [Dataset]. Hugging Face. https://huggingface.co/datasets/theworker02/atlas-of-knowledge**.

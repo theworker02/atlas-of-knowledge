@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 — 2026-08-20
+
+- Published the first explicitly tagged Hugging Face package containing the complete three-size generative LoRA family: small (`distilgpt2`), medium (`gpt2-medium`), and large (`gpt2-large`).
+- Added per-model training metadata, parameter counts, validation losses, checkpoints, requirements, and limitation-focused model cards under `models/generative/`.
+- Preserved the validated 20,417-record Atlas dataset, deterministic splits, graph exports, provenance metadata, and the transparent classification baselines.
+
 ## 1.0.3 — 2026-08-20
 
 - Added the trained discipline and course classification baselines, their metrics, requirements, and model cards directly to the complete Hugging Face Atlas release under `models/`.

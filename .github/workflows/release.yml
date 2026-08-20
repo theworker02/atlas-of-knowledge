@@ -2,7 +2,7 @@ name: Publish Atlas dataset and GitHub release
 on:
   workflow_dispatch:
     inputs:
-      version: {description: 'Semantic release version', required: true, default: '1.0.3'}
+      version: {description: 'Semantic release version', required: true, default: '1.1.0'}
 permissions:
   contents: write
 jobs:

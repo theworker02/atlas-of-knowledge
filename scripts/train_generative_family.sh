@@ -3,7 +3,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-VERSION="${1:-1.0.3}"
+VERSION="${1:-1.1.0}"
 LOG_DIR="$ROOT/artifacts/generative/v$VERSION"
 SMALL="$LOG_DIR/atlas-distilgpt2-lora"
 MEDIUM="$LOG_DIR/atlas-gpt2-medium-lora"

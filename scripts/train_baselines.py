@@ -121,7 +121,7 @@ def train(release: Path, output: Path, version: str) -> list[Path]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Train Atlas classification baselines")
-    parser.add_argument("--version", default="1.0.3")
+    parser.add_argument("--version", default="1.1.0")
     parser.add_argument("--release-dir", type=Path)
     parser.add_argument("--output-dir", type=Path, default=ROOT / "artifacts" / "models")
     args = parser.parse_args()

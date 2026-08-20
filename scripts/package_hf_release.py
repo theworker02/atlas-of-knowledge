@@ -6,8 +6,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description="Stage a complete Hugging Face dataset release")
-parser.add_argument("--version", default="1.0.3")
+parser.add_argument("--version", default="1.1.0")
+parser.add_argument("--model-version", help="Version holding local trained artifacts (defaults to the release version).")
 args = parser.parse_args()
+model_version = args.model_version or args.version
 release = ROOT / "releases" / f"v{args.version}"
 if not release.exists(): raise SystemExit(f"Missing release: {release}. Run atlas first.")
 target = ROOT / "dist" / "huggingface" / f"atlas-of-knowledge-v{args.version}"
@@ -17,11 +19,11 @@ for source, name in [(ROOT / "dataset_card.md", "README.md"), (ROOT / "LICENSE",
     shutil.copy2(source, target / name)
 shutil.copytree(ROOT / "schema", target / "schema")
 shutil.copytree(ROOT / "docs", target / "docs", dirs_exist_ok=True)
-models = ROOT / "artifacts" / "models" / f"v{args.version}"
+models = ROOT / "artifacts" / "models" / f"v{model_version}"
 if models.exists():
     shutil.copytree(models, target / "models")
     print(f"Included trained model artifacts from {models}")
-generative_models = ROOT / "artifacts" / "generative" / f"v{args.version}"
+generative_models = ROOT / "artifacts" / "generative" / f"v{model_version}"
 if generative_models.exists():
     shutil.copytree(generative_models, target / "models" / "generative", dirs_exist_ok=True)
     print(f"Included generative model artifacts from {generative_models}")

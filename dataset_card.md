@@ -1,11 +1,11 @@
 ---
 language: en
 license: cc-by-4.0
-tags: [education, knowledge-graph, university, retrieval, structured-data]
+tags: [education, knowledge-graph, university, retrieval, structured-data, generative-ai]
 ---
 # Atlas of Knowledge dataset card
 
-**Version:** 1.0.3 · **Records:** 20,417 · **Distribution:** Hugging Face release package
+**Version:** 1.1.0 · **Records:** 20,417 · **Distribution:** Hugging Face release package
 
 ## Summary and uses
 
@@ -13,7 +13,19 @@ Atlas of Knowledge is an original, structured representation of university-level
 
 ## Structure
 
-The primary `concepts` subset contains an ID, discipline, course, topic, definitions, explanatory fields, prerequisites, typed relationships, applications, misconceptions, assumptions, reasoning, questions, answers, and optional domain properties. The 1.0.3 release has 20,417 connected records across 17 courses and 15 disciplines. Each validated learning facet is developed through twelve distinct learning units, including diagnostic checks, case analysis, retrieval practice, formal consistency checks, design tasks, and peer-critique protocols. The release also packages two transparent trained baseline classifiers under `models/`. Releases export `courses`, `prerequisites`, `relationships`, `questions`, `reasoning`, `misconceptions`, and `cross_domain`, plus deterministic train/validation/test splits and an independent graph.
+The primary `concepts` subset contains an ID, discipline, course, topic, definitions, explanatory fields, prerequisites, typed relationships, applications, misconceptions, assumptions, reasoning, questions, answers, and optional domain properties. The 1.1.0 release has 20,417 connected records across 17 courses and 15 disciplines. Each validated learning facet is developed through twelve distinct learning units, including diagnostic checks, case analysis, retrieval practice, formal consistency checks, design tasks, and peer-critique protocols. Releases export `courses`, `prerequisites`, `relationships`, `questions`, `reasoning`, `misconceptions`, and `cross_domain`, plus deterministic train/validation/test splits and an independent graph.
+
+## Generative model family
+
+This tagged package includes three PEFT/LoRA causal-language-model adapters under `models/generative/`. They are research baselines trained only on Atlas training records; they are not standalone foundation models and require their named base model to load.
+
+| Variant | Base model | Base parameters | LoRA parameters | Training steps | Validation loss |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Small | `distilgpt2` | 82,723,584 | 811,008 | 2,000 | 0.117829 |
+| Medium | `gpt2-medium` | 354,823,168 | 4,325,376 | 1,200 | 0.102025 |
+| Large | `gpt2-large` | 774,030,080 | 8,110,080 | 600 | 0.097541 |
+
+The package retains the two transparent task-specific classifiers under `models/`, with metrics, dependency manifests, and limitation-focused model cards. The generative adapters include their own training metadata, evaluation output, checkpoints, and model cards.
 
 ## Collection, approval, and provenance
 
