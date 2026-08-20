@@ -1,0 +1,19 @@
+{
+  "types": [
+    "builds_on",
+    "formalizes",
+    "applies",
+    "models",
+    "constrains",
+    "is_evidence_for",
+    "is_analogous_to",
+    "is_part_of",
+    "contrasts_with",
+    "requires",
+    "related_to",
+    "part_of",
+    "extends",
+    "applied_in",
+    "derived_from"
+  ]
+}

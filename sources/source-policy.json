@@ -1,0 +1,16 @@
+{
+  "policy_version": "1.0",
+  "compatible_licenses": ["CC BY 4.0", "CC0 1.0"],
+  "sources": [
+    {"name":"OpenStax","url_prefix":"https://openstax.org/","accepted_licenses":["CC BY 4.0"],"catalog_fixture":"sources/catalogs/openstax.json","attribution":"Credit OpenStax and retain the CC BY 4.0 attribution required by the source."},
+    {"name":"Atlas fixture source","url_prefix":"https://example.edu/open/","accepted_licenses":["CC0 1.0"],"catalog_fixture":"sources/catalogs/fixture-university.json","attribution":"No attribution required by CC0; provenance remains recorded."},
+    {"name":"MIT OpenCourseWare","url_prefix":"https://ocw.mit.edu/","accepted_licenses":["CC BY-NC-SA 4.0"],"catalog_fixture":"sources/catalogs/mit-ocw.json","attribution":"Reference-only by default: MIT OCW attribution and CC BY-NC-SA terms apply."},
+    {"name":"Open Yale Courses","url_prefix":"https://oyc.yale.edu/","accepted_licenses":["CC BY-NC-SA 3.0"],"catalog_fixture":"sources/catalogs/open-yale.json","attribution":"Reference-only by default: Yale attribution and CC BY-NC-SA terms apply; third-party content may be excluded."},
+    {"name":"UC Berkeley Catalog","url_prefix":"https://undergraduate.catalog.berkeley.edu/","accepted_licenses":["Catalog metadata only"],"catalog_fixture":"sources/catalogs/uc-berkeley.json","attribution":"Discovery metadata only until course-level reuse rights are verified."},
+    {"name":"Harvard Online","url_prefix":"https://pll.harvard.edu/","accepted_licenses":["Restricted course content"],"catalog_fixture":"sources/catalogs/harvard-online.json","attribution":"Discovery metadata only; Harvard content terms must be honored."},
+    {"name":"Stanford Online","url_prefix":"https://online.stanford.edu/","accepted_licenses":["License unverified"],"catalog_fixture":"sources/catalogs/stanford-online.json","attribution":"Discovery metadata only until a course-level compatible license is verified."},
+    {"name":"Carnegie Mellon OLI","url_prefix":"https://oli.cmu.edu/","accepted_licenses":["Platform terms only"],"catalog_fixture":"sources/catalogs/cmu-oli.json","attribution":"Discovery metadata only; OLI courseware is governed by platform terms."},
+    {"name":"Open University OpenLearn","url_prefix":"https://www.open.edu/openlearn/","accepted_licenses":["CC BY-NC-SA 4.0"],"catalog_fixture":"sources/catalogs/open-university.json","attribution":"Reference-only by default: attribution, NC, SA, and course acknowledgements apply."}
+  ],
+  "rules": ["Only declared catalog feeds may be read automatically.","No authentication, private URLs, robots bypass, or arbitrary crawl is permitted.","Source text is retained only in provenance/processing storage; released Atlas records are original structured work.","NC, ND, unknown, and license-conflicting material is quarantined."]
+}

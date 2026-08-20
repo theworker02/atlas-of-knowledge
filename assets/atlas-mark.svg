@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 220" role="img" aria-labelledby="title description">
+  <title id="title">Atlas of Knowledge</title>
+  <desc id="description">A refined scholarly atlas mark: a compass and layered knowledge pages in midnight blue, cobalt, and warm gold.</desc>
+  <defs>
+    <linearGradient id="field" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1830"/><stop offset="1" stop-color="#172d55"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe29a"/><stop offset="1" stop-color="#e8ad41"/></linearGradient>
+  </defs>
+  <rect width="920" height="220" rx="28" fill="url(#field)"/>
+  <path d="M55 166c40-19 74-19 114 0V66c-40-19-74-19-114 0z" fill="#245bd8" opacity=".92"/>
+  <path d="M169 166c40-19 74-19 114 0V66c-40-19-74-19-114 0z" fill="#78a6ff" opacity=".95"/>
+  <path d="M169 66v100" stroke="#dbe7ff" stroke-width="3" opacity=".8"/>
+  <circle cx="169" cy="105" r="40" fill="#0b1830" stroke="url(#gold)" stroke-width="5"/>
+  <path d="m169 72 10 33-10 33-10-33z" fill="url(#gold)"/>
+  <path d="m136 105 33-10 33 10-33 10z" fill="#b7d0ff" opacity=".85"/>
+  <circle cx="169" cy="105" r="6" fill="#fff6dc"/>
+  <path d="M347 66h2M347 110h2M347 154h2" stroke="#e8ad41" stroke-width="8" stroke-linecap="round"/>
+  <text x="382" y="106" fill="#f7f4ed" font-family="Georgia, serif" font-size="62" font-weight="700" letter-spacing="1">Atlas</text>
+  <text x="385" y="150" fill="#93b9ff" font-family="Arial, sans-serif" font-size="21" font-weight="700" letter-spacing="8">OF KNOWLEDGE</text>
+  <text x="385" y="181" fill="#c6d5f2" font-family="Arial, sans-serif" font-size="15" letter-spacing="1">OPEN • STRUCTURED • AUDITABLE</text>
+</svg>

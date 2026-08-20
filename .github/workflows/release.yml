@@ -1,0 +1,25 @@
+name: Publish validated dataset release
+on:
+  workflow_dispatch:
+    inputs:
+      version: {description: 'Semantic release version', required: true, default: '1.0.0'}
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: huggingface-publish
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python scripts/validate_dataset.py
+      - run: python atlas_cli.py run --version '${{ inputs.version }}'
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/package_hf_release.py --version '${{ inputs.version }}'
+      - name: Upload to Hugging Face
+        env: {HF_TOKEN: '${{ secrets.HF_TOKEN }}', HF_DATASET_REPO: '${{ vars.HF_DATASET_REPO }}'}
+        run: |
+          test -n "$HF_TOKEN" && test -n "$HF_DATASET_REPO"
+          pip install huggingface_hub
+          hf upload "$HF_DATASET_REPO" "dist/huggingface/atlas-of-knowledge-v${{ inputs.version }}" --type dataset --commit-message "Atlas ${{ inputs.version }} complete release"

@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+/state/
+releases/
+/dist/
+/site/data/*.json
+/site/data/*.jsonl
+/site/data/*.parquet

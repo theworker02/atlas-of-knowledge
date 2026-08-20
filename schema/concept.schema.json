@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/theworker02/atlas-of-knowledge/schema/concept.schema.json",
+  "title": "Atlas of Knowledge concept",
+  "type": "object",
+  "required": ["id", "concept", "discipline", "course", "topic", "definition", "explanation", "prerequisites", "related_concepts", "core_principles", "examples", "applications", "common_misconceptions", "assumptions", "reasoning", "questions", "answers"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z-]*:[a-z0-9-]+:[a-z0-9-]+$"},
+    "concept": {"type": "string", "minLength": 3},
+    "discipline": {"type": "string", "minLength": 2},
+    "course": {"type": "string", "minLength": 2},
+    "topic": {"type": "string", "minLength": 2},
+    "definition": {"type": "string", "minLength": 20},
+    "explanation": {"type": "string", "minLength": 40},
+    "prerequisites": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "related_concepts": {"type": "array", "items": {"$ref": "#/$defs/relationship"}},
+    "core_principles": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 8}},
+    "examples": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "applications": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "common_misconceptions": {"type": "array", "items": {"type": "string"}},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "reasoning": {"type": "string", "minLength": 30},
+    "questions": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "answers": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "domain_properties": {"type": "object"}
+  },
+  "$defs": {
+    "relationship": {
+      "type": "object",
+      "required": ["target_id", "relationship", "rationale"],
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {"type": "string", "pattern": "^[a-z][a-z-]*:[a-z0-9-]+:[a-z0-9-]+$"},
+        "relationship": {"type": "string"},
+        "rationale": {"type": "string", "minLength": 15}
+      }
+    }
+  }
+}
