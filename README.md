@@ -24,6 +24,7 @@ task_categories:
   <a href="https://github.com/theworker02/atlas-of-knowledge/actions/workflows/validate.yml"><img src="https://github.com/theworker02/atlas-of-knowledge/actions/workflows/validate.yml/badge.svg" alt="Validation" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC%20BY%204.0-2555d9.svg" alt="CC BY 4.0" /></a>
   <a href="https://huggingface.co/datasets/theworker02/atlas-of-knowledge"><img src="https://img.shields.io/badge/dataset-Hugging%20Face-f7c95c.svg" alt="Hugging Face dataset" /></a>
+  <a href="https://pypi.org/project/atlas-of-knowledge/"><img src="https://img.shields.io/pypi/v/atlas-of-knowledge.svg" alt="PyPI package" /></a>
   <a href="CITATION.cff"><img src="https://img.shields.io/badge/citation-CFF-10233e.svg" alt="Citation file" /></a>
   <img src="https://img.shields.io/badge/python-3.11%2B-3776ab.svg" alt="Python 3.11 or newer" />
 </p>
@@ -84,6 +85,15 @@ docs/                     Source policy and validation methodology
 Each concept has a stable `id`, original instructional prose, prerequisite IDs, related concept edges, question/answer pairs, and an optional `domain_properties` object for equations, algorithms, laws, complexity, or experimental methods. Relationship IDs are local dataset identifiers; external links are intentionally not required for a usable knowledge graph.
 
 ## Use
+
+Install the lightweight, source-only pipeline from [PyPI](https://pypi.org/project/atlas-of-knowledge/):
+
+```bash
+python -m pip install atlas-of-knowledge==1.1.0
+atlas run
+```
+
+The PyPI package provides the CLI and pipeline code. The full generated dataset, graph exports, and model artifacts remain versioned on [Hugging Face](https://huggingface.co/datasets/theworker02/atlas-of-knowledge).
 
 ```bash
 python scripts/validate_dataset.py
