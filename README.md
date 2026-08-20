@@ -42,13 +42,13 @@ Atlas turns the structure of a strong university education into reusable data: *
 
 | Release | Connected records | Courses | Minimum course depth | License |
 | --- | ---: | ---: | ---: | --- |
-| `v1.0.2` | 20,417 | 10 | 1,200+ records | CC BY 4.0 |
+| `v1.0.3` | 20,417 | 17 | 1,200+ records | CC BY 4.0 |
 
 Every generated record retains a stable local identifier, prerequisite path, typed relationship, validation report, and provenance envelope. The release is deterministic: the same approved inputs and version produce the same split assignments and graph structure.
 
 ## Current release
 
-V1.0.2 provides a production-oriented, offline-first pipeline around fifteen curated university anchors, their connected learning content, and eligible collected course outlines. It includes allowlisted course discovery, licensing gates, a SQLite course registry, quality reports, deterministic releases, graph exports, CI, and a static GitHub Pages site. Each validated facet now produces twelve distinct instructional records, increasing depth through diagnostic, retrieval, formal-checking, design, case-analysis, and peer-critique units rather than using a larger unstructured document dump.
+V1.0.3 provides a production-oriented, offline-first pipeline around fifteen curated university anchors, their connected learning content, eligible collected course outlines, and two transparent trained classification baselines. It includes allowlisted course discovery, licensing gates, a SQLite course registry, quality reports, deterministic releases, graph exports, CI, and a static GitHub Pages site. Each validated facet produces twelve distinct instructional records, increasing depth through diagnostic, retrieval, formal-checking, design, case-analysis, and peer-critique units rather than using a larger unstructured document dump.
 
 ## Layout
 
@@ -75,7 +75,7 @@ Each concept has a stable `id`, original instructional prose, prerequisite IDs, 
 
 ```bash
 python scripts/validate_dataset.py
-python atlas_cli.py run --version 1.0.2
+python atlas_cli.py run --version 1.0.3
 python -m unittest discover -s tests -v
 ```
 
@@ -117,9 +117,9 @@ The repository never commits a full generated dataset to GitHub. Package and pub
 
 ```bash
 hf auth login
-python scripts/package_hf_release.py --version 1.0.2
+python scripts/package_hf_release.py --version 1.0.3
 hf repos create theworker02/atlas-of-knowledge --type dataset --public --exist-ok
-hf upload theworker02/atlas-of-knowledge dist/huggingface/atlas-of-knowledge-v1.0.2 --type dataset --commit-message "Atlas v1.0.2 complete release"
+hf upload theworker02/atlas-of-knowledge dist/huggingface/atlas-of-knowledge-v1.0.3 --type dataset --commit-message "Atlas v1.0.3 complete release"
 ```
 
 The staged package contains all data subsets, splits, graph export, build metadata, schema, dataset card, licensing, citation, and methodology documentation.
@@ -129,11 +129,11 @@ The staged package contains all data subsets, splits, graph export, build metada
 Atlas includes a CPU-friendly trainer for transparent discipline and course classification baselines. It fits only on the deterministic training split and evaluates separately on validation and test splits; it is not a generative-model trainer or a claim of broad educational competence. Packaged baseline artifacts are included under `models/` in the existing Hugging Face Atlas dataset release.
 
 ```bash
-python scripts/train_baselines.py --version 1.0.2
+python scripts/train_baselines.py --version 1.0.3
 ```
 
 See [model baseline documentation](docs/MODEL_BASELINES.md) for the artifact contract, evaluation boundary, and limitations.
 
 ## Citation
 
-Recommended citation: **theworker02 (2026). Atlas of Knowledge (Version 1.0.2) [Dataset]. Hugging Face. https://huggingface.co/datasets/theworker02/atlas-of-knowledge**.
+Recommended citation: **theworker02 (2026). Atlas of Knowledge (Version 1.0.3) [Dataset]. Hugging Face. https://huggingface.co/datasets/theworker02/atlas-of-knowledge**.

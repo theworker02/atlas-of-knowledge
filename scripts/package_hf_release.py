@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description="Stage a complete Hugging Face dataset release")
-parser.add_argument("--version", default="1.0.2")
+parser.add_argument("--version", default="1.0.3")
 args = parser.parse_args()
 release = ROOT / "releases" / f"v{args.version}"
 if not release.exists(): raise SystemExit(f"Missing release: {release}. Run atlas first.")

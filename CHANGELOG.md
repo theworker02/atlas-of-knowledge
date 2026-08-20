@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.3 — 2026-08-20
+
+- Added the trained discipline and course classification baselines, their metrics, requirements, and model cards directly to the complete Hugging Face Atlas release under `models/`.
+- Corrected release metadata to distinguish the 17 dataset courses from the 10 source-catalog entries.
+
 ## 1.0.2 — 2026-08-20
 
 - Doubled the deterministic release depth by expanding every validated learning facet from six to twelve distinct instructional units.

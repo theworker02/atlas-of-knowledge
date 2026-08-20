@@ -12,7 +12,7 @@ def write_jsonl(path: Path, values: list[dict]):
 def split(identifier: str) -> str:
     bucket = int(hashlib.sha256(identifier.encode()).hexdigest()[:8], 16) % 100
     return "test" if bucket < 10 else "validation" if bucket < 20 else "train"
-def build(version: str = "1.0.2", additional_records: list[dict] | None = None, collection_stats: dict | None = None) -> Path:
+def build(version: str = "1.0.3", additional_records: list[dict] | None = None, collection_stats: dict | None = None) -> Path:
     records = load_jsonl(ROOT / "data" / "atlas-v1.jsonl") + (additional_records or [])
     records = sorted({record["id"]:record for record in records}.values(), key=lambda x:x["id"])
     target = ROOT / "releases" / f"v{version}"; shutil.rmtree(target, ignore_errors=True); target.mkdir(parents=True)
@@ -28,6 +28,9 @@ def build(version: str = "1.0.2", additional_records: list[dict] | None = None, 
     write_jsonl(target/"courses.jsonl", sorted({json.dumps(c,sort_keys=True):c for c in courses}.values(),key=lambda x:x["course_id"]))
     graph = {"nodes":[{"id":r["id"],"type":"concept","label":r["concept"],"discipline":r["discipline"],"course":r["course"],"topic":r["topic"]} for r in records],"edges":edges+[{"source_id":r["id"],"target_id":p,"relationship":"requires"} for r in records for p in r["prerequisites"]]}
     (target/"knowledge-graph.json").write_text(json.dumps(graph,indent=2),encoding="utf-8")
-    stats={"version":version,"built_at":datetime.now(UTC).isoformat(),"record_count":len(records),"disciplines":dict(sorted(Counter(r["discipline"] for r in records).items())),"splits":{n:sum(split(r["id"])==n for r in records) for n in ("train","validation","test")},"graph_edges":len(graph["edges"]),**(collection_stats or {})}
+    source_stats = dict(collection_stats or {})
+    if "courses" in source_stats:
+        source_stats["source_catalog_courses"] = source_stats.pop("courses")
+    stats={"version":version,"built_at":datetime.now(UTC).isoformat(),"record_count":len(records),"courses":len({(r["discipline"], r["course"]) for r in records}),"disciplines":dict(sorted(Counter(r["discipline"] for r in records).items())),"splits":{n:sum(split(r["id"])==n for r in records) for n in ("train","validation","test")},"graph_edges":len(graph["edges"]),**source_stats}
     (target/"build-metadata.json").write_text(json.dumps(stats,indent=2),encoding="utf-8"); (ROOT/"site"/"data").mkdir(parents=True,exist_ok=True); (ROOT/"site"/"data"/"stats.json").write_text(json.dumps(stats,indent=2),encoding="utf-8")
     return target
