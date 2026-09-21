@@ -25,7 +25,8 @@ Links:
 
 - Pipeline: https://github.com/theworker02/patentpulse
 - Snapshot: https://huggingface.co/datasets/theworker02/patentpulse
-- Data room: https://github.com/theworker02/patentpulse/tree/main/docs/acquisition
+- Data room: https://github.com/theworker02/atlas-of-knowledge/blob/cursor/patentpulse-acquisition-data-room-e1fd/docs/patentpulse-acquisition/README.md
+- Packet PR: https://github.com/theworker02/atlas-of-knowledge/pull/1
 
 Matthew Looney
 matthewlooney5@gmail.com
@@ -37,14 +38,14 @@ Emails are sent only to addresses published on the company's own site or company
 
 | Date (UTC) | Company | Category | Address | Status |
 | --- | --- | --- | --- | --- |
-| 2026-09-21 | IPRally | Prior-art / search | sales@iprally.com | queued |
-| 2026-09-21 | PatSnap | Patent intelligence | demo-inquiry@patsnap.com | queued |
-| 2026-09-21 | Amplified | Prior-art / search | info@amplified.ai | queued |
-| 2026-09-21 | Minesoft | Patent intelligence | info@minesoft.com | queued |
-| 2026-09-21 | Questel | Patent intelligence | communication@questel.com | queued |
-| 2026-09-21 | Luminance | Legal-AI | info@luminance.com | queued |
-| 2026-09-21 | Digital Science | Scientific information | info@digital-science.com | queued |
-| 2026-09-21 | Snorkel AI | AI-data | info@snorkel.ai | queued |
-| 2026-09-21 | Hugging Face | AI-data | website@huggingface.co | queued |
+| 2026-09-21 | IPRally | Prior-art / search | sales@iprally.com | sent (`1a0c1891c27353a6`) |
+| 2026-09-21 | PatSnap | Patent intelligence | demo-inquiry@patsnap.com | sent (`1a0c1891f6d982dd`) |
+| 2026-09-21 | Amplified | Prior-art / search | info@amplified.ai | sent (`1a0c18920f554281`) |
+| 2026-09-21 | Minesoft | Patent intelligence | info@minesoft.com | sent (`1a0c1897fbb82888`) |
+| 2026-09-21 | Questel | Patent intelligence | communication@questel.com | sent (`1a0c18980e3f3173`) |
+| 2026-09-21 | Luminance | Legal-AI | info@luminance.com | sent (`1a0c189827bd6137`) |
+| 2026-09-21 | Digital Science | Scientific information | info@digital-science.com | sent (`1a0c189dc3733207`) |
+| 2026-09-21 | Snorkel AI | AI-data | info@snorkel.ai | sent (`1a0c189dff12afd7`) |
+| 2026-09-21 | Hugging Face | AI-data | website@huggingface.co | sent (`1a0c189e00ae1d67`) |
 
 Companies with partnership **forms only** (Clarivate IP, Harvey, Cohere, Together AI, Thomson Reuters, LexisNexis IP, CAS, Allen AI) are listed in [TARGET_ACQUIRERS.md](TARGET_ACQUIRERS.md) and were not cold-emailed to privacy or recruiting inboxes.
