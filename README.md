@@ -37,7 +37,7 @@ Atlas of Knowledge is an open, machine-readable map of university knowledge. It 
 
 ## Why Atlas
 
-Atlas turns the structure of a strong university education into reusable data: **discipline → course → topic → concept → prerequisite → application**. It is built for educational retrieval, knowledge graphs, carefully evaluated training workflows, and transparent dataset research—not for reproducing source material.
+Atlas turns the structure of a strong university education into reusable data: **discipline â†’ course â†’ topic â†’ concept â†’ prerequisite â†’ application**. It is built for educational retrieval, knowledge graphs, carefully evaluated training workflows, and transparent dataset researchâ€”not for reproducing source material.
 
 ## At a glance
 
@@ -105,7 +105,7 @@ The pipeline is intentionally network-free by default. It consumes only declared
 
 ## Automation and safety
 
-The pipeline is `Discover → Evaluate → Approve → Ingest → Transform → Validate → Deduplicate → Graph → Release → Document`. Courses scoring at least 0.75 after allowlist, license, metadata, discipline, and level checks are approved automatically; others are quarantined. Records require a score of 0.85 to be released. License ambiguity, unsupported sources, duplicate candidates, failed graph checks, or low-confidence results are held for review.
+The pipeline is `Discover â†’ Evaluate â†’ Approve â†’ Ingest â†’ Transform â†’ Validate â†’ Deduplicate â†’ Graph â†’ Release â†’ Document`. Courses scoring at least 0.75 after allowlist, license, metadata, discipline, and level checks are approved automatically; others are quarantined. Records require a score of 0.85 to be released. License ambiguity, unsupported sources, duplicate candidates, failed graph checks, or low-confidence results are held for review.
 
 See [source policy](docs/SOURCE_POLICY.md), [validation methodology](docs/VALIDATION.md), and the [dataset card](dataset_card.md). GitHub Actions validates scheduled and proposed changes, builds release artifacts, deploys Pages from main, and, in a protected manually dispatched workflow, uploads the complete package to Hugging Face and creates a matching GitHub release tag with generated release notes. The GitHub release intentionally contains no dataset payload.
 
@@ -159,3 +159,10 @@ See [model baseline documentation](docs/MODEL_BASELINES.md) for the artifact con
 ## Citation
 
 Recommended citation: **theworker02 (2026). Atlas of Knowledge (Version 1.1.0) [Dataset]. Hugging Face. https://huggingface.co/datasets/theworker02/atlas-of-knowledge**.
+
+
+---
+
+## License & acquisition
+
+This project is **proprietary**. Production use, redistribution, and commercial deployment require a written commercial license or completed acquisition. See [LICENSE](./LICENSE) and [ACQUISITION.md](./ACQUISITION.md). Contact [@theworker02](https://github.com/theworker02).
